@@ -1,0 +1,1 @@
+enum CountType { repetition, duration }
