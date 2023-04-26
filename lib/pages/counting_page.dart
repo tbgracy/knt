@@ -44,21 +44,18 @@ class _CountingPageState extends ConsumerState<CountingPage> {
   }
 
   void _goBack() {
+    _cameraController.dispose();
     Navigator.pop(context);
   }
 
   void _toggleCameraLens() async {
     final lensDirection = _cameraController.description.lensDirection;
     if (lensDirection == CameraLensDirection.front) {
-      // setState(() {
         _currentCamera = _cameras.firstWhere(
             (element) => element.lensDirection == CameraLensDirection.back);
-      // });
     } else {
-      // setState(() {
         _currentCamera = _cameras.firstWhere(
             (element) => element.lensDirection == CameraLensDirection.front);
-      // });
     }
     _cameraController =
         CameraController(_currentCamera, ResolutionPreset.medium);
@@ -67,7 +64,6 @@ class _CountingPageState extends ConsumerState<CountingPage> {
         _initializeControllerFuture = _cameraController.initialize();
       },
     );
-    // ref.invalidate(newCameraControllerProvider);
   }
 
   @override
@@ -100,11 +96,9 @@ class _CountingPageState extends ConsumerState<CountingPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width * 0.8,
               height: MediaQuery.of(context).size.height * 0.6,
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(30)),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(30),
                 child: FutureBuilder(
@@ -120,12 +114,9 @@ class _CountingPageState extends ConsumerState<CountingPage> {
                     }),
               ),
             ),
-            Positioned(
-              bottom: 40,
-              child: widget.exercise.countType == CountType.repetition
-                  ? const RepCounterWidget(0)
-                  : const DurationCounterWidget(Duration(seconds: 0)),
-            ),
+            widget.exercise.countType == CountType.repetition
+                ? const RepCounterWidget(0)
+                : const DurationCounterWidget(Duration(seconds: 0)),
           ],
         ),
       ),
