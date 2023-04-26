@@ -15,6 +15,9 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   flutter_riverpod: ^2.3.2
+  camera: ^0.9.3+1
+  path_provider: ^2.0.14
+  path: ^1.8.1
 
 dev_dependencies:
   flutter_test:
@@ -26,7 +29,7 @@ dev_dependencies:
 flutter_icons:
   android: true
   adaptive_icon_foreground: assets/images/logo.png
-  adaptive_icon_background: "#2e4f4f"
+  adaptive_icon_background: "#0e8388"
   image_path: assets/images/logo.png
 
 flutter:

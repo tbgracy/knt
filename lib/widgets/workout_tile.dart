@@ -11,7 +11,7 @@ class WorkoutTile extends ConsumerWidget {
     required this.exercise,
   });
 
-  final _height = 200.0;
+  final _height = 300.0;
   final _width = 300.0;
   final _imageBackgroundSize = 170.0;
 
@@ -20,8 +20,8 @@ class WorkoutTile extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return SizedBox(
-      width: _width,
       height: _height,
+      width: _width,
       child: Card(
         elevation: 0,
         color: Colors.transparent,
@@ -50,7 +50,17 @@ class WorkoutTile extends ConsumerWidget {
                 ),
               ],
             ),
-            Text(exercise.name),
+            Padding(
+              padding: const EdgeInsets.only(top: 2),
+              child: Text(
+                exercise.name,
+                style: const TextStyle(
+                  fontFamily: 'Nunito',
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           ],
         ),
       ),

@@ -54,14 +54,19 @@ class HomePage extends ConsumerWidget {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Select\nWorkout',
-            style: Theme.of(context).textTheme.headline1,
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Text(
+              'Select\nWorkout',
+              style: Theme.of(context).textTheme.headline1,
+            ),
           ),
           GridView.builder(
             shrinkWrap: true,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2),
+              crossAxisCount: 2,
+              // mainAxisSpacing: 20,
+            ),
             itemCount: exercises.length,
             itemBuilder: (context, index) =>
                 WorkoutTile(exercise: exercises[index]),

@@ -14,4 +14,7 @@ final themeData = ThemeData(
       fontSize: 64
     ),
   ),
+  iconTheme: IconThemeData(
+    color: colors[0],
+  ),
 );
